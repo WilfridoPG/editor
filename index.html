@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Editor</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+   <script type="text/javascript" src="js/fabric.min.js"></script> 
+<style>
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 50%;
+  
+}
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+}
+</style>
+</head>
+<body>
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large red"  data-tooltip="agregrar fondo imagenes y emoticones"><i class="material-icons">add</i></a>
+  <ul>
+   
+    <li><a class="btn-floating yellow darken-1"><i class="material-icons">title</i>
+    </a></li>
+    <li><a class="btn-floating green"><i class="material-icons">wallpaper</i></a></li>
+    <li><a class="btn-floating blue"><i class="material-icons">add_a_photo</i>
+    </a></li>
+  </ul>
+</div>
+<div class="row">
+    <div class="grid-example col s8  lighten-2 teal">
+        <a class="waves-effect waves-teal btn-flat">
+        Editor
+        </a>
+    </div>
+  
+    <div class="grid-example col s2 lighten-2 teal">
+        <a class="waves-effect waves-teal btn-flat" id="descargar" ><i class="material-icons">file_download</i>
+        </a>
+    </div>
+    <div class="grid-example col s2  lighten-2 teal">
+        <a href="#" data-target="slide-out" class="sidenav-trigger waves-effect waves-teal btn-flat "><i class="material-icons">share</i></a>
+      
+    </div>
+    
+    <div class="grid-example col s12  lighten-2 ">
+    	  <a class="waves-effect waves-teal btn-flat" id="nuevo"><i class="material-icons">autorenew</i></a>
+    <a class="waves-effect waves-teal btn-flat" id="colorf"><i class="material-icons" >format_color_fill</i></a>
+        
+        
+        <a class="waves-effect waves-teal btn-flat" id="remove" ><i class="material-icons">delete</i>
+
+        </a>
+ <a  class="waves-effect waves-teal  modal-trigger  btn-flat " href="#modal1"   ><i class="material-icons">insert_emoticon</i>
+    </a>
+    <a  class="waves-effect waves-teal btn-flat " id="colort"><i class="material-icons">format_color_text</i>
+    </a>
+        
+        
+    </div>
+    
+   
+</div>
+          
+          
+<div class="row" >
+    <div class="col s1 m1 l1   " style="min-height: 70vh;" ></div>
+    <div class="col s10  m10 l10 " style="min-height: 70vh;" id="contenedor" >
+
+
+     <canvas id="canvas" style="border:1px solid #AAA; border-style:dashed;" > Tu navegador no soporta canvas. </canvas> 
+
+
+
+     </div>
+    <div class="col s1 m1 l1  " style="min-height: 70vh;" > </div>
+</div>
+  
+<div class="row">
+    <div class="grid-example col s6  lighten-2 ">
+    
+        <textarea id="icon_prefix2" class="materialize-textarea textomeme"    placeholder="Agregar texto"></textarea>
+    </div>
+    <div class="grid-example col s2  lighten-2 ">
+        <button class="btn waves-effect waves-light" type="submit"  onclick="agregarTexto()"  name="action">
+        <i class="material-icons right">send</i>
+        </button>
+    </div>
+    <div class="grid-example col s4  lighten-2 "></div>
+</div>
+
+<!-- Modal Trigger -->
+  <!-- Modal Structure -->
+<div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+        <h4>Emoticones</h4>
+        <ul id="tabs-swipe-demo" class="tabs">
+        <li class="tab col s3"><a class="active" href="#test-swipe-1">Caritas</a></li>
+        <li class="tab col s3"><a  href="#test-swipe-2">Deportes</a></li>
+        <li class="tab col s3"><a href="#test-swipe-3">Política</a></li>
+        </ul>
+        <div id="test-swipe-1" class="col s12 ">
+            <div class="row">
+                <div class="col s2"><i class="material-icons">tag_faces</i></div>
+                <div class="col s2"><i class="material-icons">tag_faces</i></div>
+                <div class="col s2"><i class="material-icons">tag_faces</i></div>
+                <div class="col s2"><i class="material-icons">tag_faces</i></div>
+                <div class="col s2"><i class="material-icons">tag_faces</i></div>
+                <div class="col s2"><i class="material-icons">tag_faces</i></div>
+                <div class="col s2"><i class="material-icons">tag_faces</i></div>
+                <div class="col s2"><i class="material-icons">tag_faces</i></div>
+                <div class="col s2"><i class="material-icons">tag_faces</i></div>
+                <div class="col s2"><i class="material-icons">tag_faces</i></div>
+                <div class="col s2"><i class="material-icons">tag_faces</i></div>
+                <div class="col s2"><i class="material-icons">tag_faces</i></div>
+                <div class="col s2"><i class="material-icons">tag_faces</i></div>
+                <div class="col s2"><i class="material-icons">tag_faces</i></div>
+                <div class="col s2"><i class="material-icons">tag_faces</i></div>
+            </div>
+        </div>
+        <div id="test-swipe-2" class="col s12 red">Test 2</div>
+        <div id="test-swipe-3" class="col s12 green">Test 3</div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+</div>
+
+
+  <ul id="slide-out" class="sidenav">
+    <li><div class="user-view">
+      <div class="background">
+        <img src="images/office.jpg">
+      </div>
+      <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
+      <a href="#name"><span class="white-text name">John Doe</span></a>
+      <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+    </div></li>
+    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+    <li><a href="#!">Second Link</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Subheader</a></li>
+    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+  </ul>
+  
+  
+  <li style="margin-top:10px;">
+          <button id="drawing-mode" class="btn btn-info">Enter drawing mode</button>
+          <div style="display: none;" id="drawing-mode-options">
+            <label for="drawing-mode-selector">Mode:</label>
+            
+            <div class="input-field col s12">
+    <select id="drawing-mode-selector">
+      <option  selected>Choose your option</option>
+      <option>Pencil</option>
+              <option>Circle</option>
+              <option>Spray</option>
+              <option>Pattern</option>
+    </select>
+    <label>Materialize Select</label>
+  </div>
+           
+            <label for="drawing-line-width">Line width:</label>
+            <input type="range" value="30" min="0" max="150" id="drawing-line-width"><br>
+            <label for="drawing-color">Line color:</label>
+            
+            <input type="color" value="#005E7A" id="drawing-color"><br>
+            <label for="drawing-shadow-width">Line shadow width:</label>
+            <input type="range" value="0" min="0" max="50" id="drawing-shadow-width"><br>
+          </div>
+        </li>
+  
+  <!--  Scripts-->
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>  
+      
+    <script type="text/javascript" src="js/controller.js"></script>
+
+    <script>   
+    $(document).ready(function(){
+    $('select').formSelect();
+  });
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.fixed-action-btn');
+    var instances = M.FloatingActionButton.init(elems, {
+      direction: 'left'
+        });
+    });
+    $(document).ready(function() {
+        $('.modal').modal();
+    });
+    $(document).ready(function(){
+        $('.tabs').tabs();
+    });
+     $('.dropdown-trigger').dropdown();
+    </script>
+</body>
+</html>
